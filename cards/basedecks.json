@@ -1,0 +1,242 @@
+[
+    {
+        "year": 1,
+        "character": "Harry Potter",
+        "name": "Alohomora !",
+        "genre": "sort",
+        "description": "Gagnez 1 !mornille",
+        "mechanics": {
+            "instant": [
+                "INFLUENCESELF_1"
+            ]
+        },
+        "cost": 0,
+        "nb": 7
+    },
+    {
+        "year": 1,
+        "character": "Harry Potter",
+        "name": "Éclair de feu",
+        "genre": "objet",
+        "description": "Gagnez 1 !eclair. Si vous parvenez à vaincre un Ennemi, gagnez également 1 !mornille.",
+        "mechanics": {
+            "instant": [
+                "ATTACKSELF_1"
+            ],
+            "trigger": ["VILLAINDEAD", "INFLUENCESELF_1"]
+            }
+        ,
+        "cost": 0,
+        "nb": 1
+    },
+    {
+        "year": 1,
+        "character": "Harry Potter",
+        "name": "Cape d'invisibilité",
+        "genre": "objet",
+        "description": "Gagnez 1 !mornille. Si cette carte est dans votre main, aucun Ennemi ou évènement Forces du Mal ne peut vous faire perdre plus de 1 !coeur chacun.",
+        "mechanics": {
+            "instant": [
+                "INFLUENCESELF_1"
+            ],
+            "in_hand": [
+                "MAXDAMAGE_1"
+            ]
+        },
+        "cost": 0,
+        "nb": 1
+    },
+    {
+        "year": 1,
+        "character": "Harry Potter",
+        "name": "Hedwige",
+        "genre": "allié",
+        "description": "Résolvez un effet au choix : Gagnez 1 !éclair ou gagnez 2 !coeur",
+        "mechanics": {
+            "choice": [
+                "ATTACKSELF_1",
+                "HEALSELF_2"
+            ]
+        },
+        "cost": 0,
+        "nb": 1
+    },
+    {
+        "year": 1,
+        "character": "Hermione Granger",
+        "name": "Alohomora !",
+        "genre": "sort",
+        "description": "Gagnez 1 !mornille",
+        "mechanics": {
+            "instant": [
+                "INFLUENCESELF_1"
+            ]
+        },
+        "cost": 0,
+        "nb": 7
+    },
+    {
+        "year": 1,
+        "character": "Hermione Granger",
+        "name": "Les contes de Beedle le Barde",
+        "genre": "objet",
+        "description": "Résolvez un effet au choix : Gagnez 2 !mornille ou CHAQUE Héros gagne 1 !mornille",
+        "mechanics": {
+            "choice": [
+                "INFLUENCESELF_2",
+                "INFLUENCEALL_1"
+            ]
+        },
+        "cost": 0,
+        "nb": 1
+    },
+    {
+        "year": 1,
+        "character": "Hermione Granger",
+        "name": "Pattenrond",
+        "genre": "allié",
+        "description": "Résolvez un effet au choix : Gagnez 1 !éclair ou gagnez 2 !coeur",
+        "mechanics": {
+            "choice": [
+                "ATTACKSELF_1",
+                "HEALSELF_2"
+            ]
+        },
+        "cost": 0,
+        "nb": 1
+    },
+    {
+        "year": 1,
+        "character": "Hermione Granger",
+        "name": "Retourneur de temps",
+        "genre": "objet",
+        "description": "Gagnez 1 !mornille. Vous pouvez poser les Sorts que vous acquérez sur votre deck au lieu de les placer dans votre défausse",
+        "mechanics": {
+            "instant": [
+                "INFLUENCESELF_1"
+            ],
+            "effect": [
+                "TOPDECK_SPELL"
+            ]
+        },
+        "cost": 0,
+        "nb": 1
+    },
+    {
+        "year": 1,
+        "character": "Ron Weasley",
+        "name": "Alohomora !",
+        "genre": "sort",
+        "description": "Gagnez 1 !mornille",
+        "mechanics": {
+            "instant": [
+                "INFLUENCESELF_1"
+            ]
+        },
+        "cost": 0,
+        "nb": 7
+    },
+    {
+        "year": 1,
+        "character": "Ron Weasley",
+        "name": "Brossdur 11",
+        "genre": "objet",
+        "description": "Gagnez 1 !éclair. Si vous parvenez à vaincre un Ennemi, gagnez également 1 !mornille.",
+        "mechanics": {
+            "instant": [
+                "ATTACKSELF_1"
+            ],
+            "trigger": ["VILLAINDEAD",  "INFLUENCESELF_1"]
+        },
+        "cost": 0,
+        "nb": 1
+    },
+    {
+        "year": 1,
+        "character": "Ron Weasley",
+        "name": "Coquecigrue",
+        "genre": "allié",
+        "description": "Résolvez un effet au choix : Gagnez 1 !éclair ou gagnez 2 !coeur",
+        "mechanics": {
+            "choice": [
+                "ATTACKSELF_1",
+                "HEALSELF_2"
+            ]
+        },
+        "cost": 0,
+        "nb": 1
+    },
+    {
+        "year": 1,
+        "character": "Ron Weasley",
+        "name": "Dragées surprises de Bertie Crochue",
+        "genre": "objet",
+        "description": "Gagnez 1 !mornille. Gagnez 1 !éclair par Allié joué pendant ce tour.",
+        "mechanics": {
+            "instant": [
+                "INFLUENCESELF_1"
+            ],
+            "effect": [
+                "ATTACKSELF_1_PER_ALLY"
+            ]
+        },
+        "cost": 0,
+        "nb": 1
+    },
+    {
+        "year": 1,
+        "character": "Neville Londubat",
+        "name": "Alohomora !",
+        "genre": "sort",
+        "description": "Gagnez 1 !mornille",
+        "mechanics": {
+            "instant": [
+                "INFLUENCESELF_1"
+            ]
+        },
+        "cost": 0,
+        "nb": 7
+    },
+    {
+        "year": 1,
+        "character": "Neville Londubat",
+        "name": "Rappeltout",
+        "genre": "objet",
+        "description": "Gagnez 1 !mornille. Si vous défaussez cet Objet, gagnez 2 !mornilles",
+        "mechanics": {
+            "instant": [
+                "INFLUENCESELF_1"
+            ],
+            "trigger": ["DISCARDEDSELF", "INFLUENCEHERO_2"]
+        },
+        "cost": 0,
+        "nb": 1
+    },
+    {
+        "year": 1,
+        "character": "Neville Londubat",
+        "name": "Trevor",
+        "genre": "allié",
+        "description": "Résolvez un effet au choix : Gagnez 1 !éclair ou gagnez 2 !coeur",
+        "mechanics": {
+            "choice": [
+                "ATTACKSELF_1",
+                "HEALSELF_2"
+            ]
+        },
+        "cost": 0,
+        "nb": 1
+    },
+    {
+        "year": 1,
+        "character": "Neville Londubat",
+        "name": "Mandragore",
+        "genre": "objet",
+        "description": "Résolvez un effet au choix : Gagnez 1 !éclair ou un Héros au choix gagne 2 !coeurs",
+        "mechanics": {
+            "choice": ["ATTACKSELF_1","HEROHEAL_2"]
+        },
+        "cost": 0,
+        "nb": 1
+    }
+]

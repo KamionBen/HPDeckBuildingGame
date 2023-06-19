@@ -1,0 +1,116 @@
+[
+    {
+        "year": 1,
+        "name": "ALBUS DUMBLEDORE",
+        "genre": "allié",
+        "description": "CHAQUE Héros gagne 1 !éclair, 1 !mornille, 1 !coeur et pioche 1 carte.",
+        "cost": 8,
+        "nb": 1,
+        "mechanics": {"instant":  ["ATTACKALL_1", "INFLUENCEALL_1", "HEALALL_1", "PICKALL_1"]}
+    },
+    {
+        "year": 1,
+        "name": "RUBEUS HAGRID",
+        "genre": "allié",
+        "description": "Gagnez 1 !éclair. CHAQUE Héros gagne 1 !coeur.",
+        "cost": 4,
+        "nb": 1,
+        "mechanics": {"instant":  ["ATTACKSELF_1", "HEALALL_1"]}
+    },
+    {
+        "year": 1,
+        "name": "OLIVIER DUBOIS",
+        "genre": "allié",
+        "description": "Gagnez 1 !éclair. Si vous parvenez à vaincre un Ennemi, un Héros au choix gagne 2 !coeur.",
+        "cost": 3,
+        "nb": 1,
+        "mechanics": {
+            "instant":  ["ATTACKSELF_1"],
+            "trigger": ["VILLAINDEAD",  "HEROHEAL_2"]}},
+
+    {
+        "year": 1,
+        "name": "VIF D'OR",
+        "genre": "objet",
+        "description": "Gagnez 2 !mornilles et piochez 1 carte.",
+        "cost": 5,
+        "nb": 1,
+        "mechanics": {"instant":  ["INFLUENCESELF_2", "PICKSELF_1"]}
+    },
+    {
+        "year": 1,
+        "name": "ESSENCE DE DICTAME",
+        "genre": "objet",
+        "description": "Un Héros au choix gagne 2 !coeur.",
+        "cost": 2,
+        "nb": 4,
+        "mechanics": {"choice":  ["HEROHEAL_2"]}
+    },
+    {
+        "year": 1,
+        "name": "NÉCESSAIRE DE QUIDDITCH",
+        "genre": "objet",
+        "description": "Gagnez 1 !éclair et 1 !coeur.",
+        "cost": 3,
+        "nb": 4,
+        "mechanics": {"instant":  ["ATTACKSELF_1", "HEALSELF_1"]}
+    },
+    {
+        "year": 1,
+        "name": "CHOIXPEAU MAGIQUE",
+        "genre": "objet",
+        "description": "Gagnez 2 !mornille. Vous pouvez poser les Alliès que vous acquérez sur votre deck au lieu de les placer dans votre défausse.",
+        "cost": 4,
+        "nb": 1,
+        "mechanics": {"instant":  ["INFLUENCESELF_2"], "effect": [
+                "TOPDECK_ALLY"
+            ]}
+    },
+    {
+        "year": 1,
+        "name": "WINGARDIUM LEVIOSA !",
+        "genre": "sort",
+        "description": "Gagnez 1 !mornille. Vous pouvez poser les Objets que vous acquérez sur votre deck au lieu de les placer dans votre défausse.",
+        "cost": 2,
+        "nb": 3,
+        "mechanics": {"instant":  ["INFLUENCESELF_1"], "effect": [
+                "TOPDECK_OBJECT"
+            ]}
+    },
+    {
+        "year": 1,
+        "name": "REPARO !",
+        "genre": "sort",
+        "description": "Résolvez un effet au choix : Gagnez 2 !mornilles ou piochez 1 carte.",
+        "cost": 3,
+        "nb": 6,
+        "mechanics": {"choice":  ["INFLUENCESELF_2", "PICKSELF_1"]}
+    },
+    {
+        "year": 1,
+        "name": "INCENDIO !",
+        "genre": "sort",
+        "description": "Gagnez 1 !éclair et piochez 1 carte.",
+        "cost": 4,
+        "nb": 4,
+        "mechanics": {"instant":  ["ATTACKSELF_1","PICKSELF_1"]}
+    },
+    {
+        "year": 1,
+        "name": "LUMOS !",
+        "genre": "sort",
+        "description": "CHAQUE Héros pioche 1 carte.",
+        "cost": 4,
+        "nb": 2,
+        "mechanics": {"instant": ["PICKALL_1"]}
+    },
+    {
+        "year": 1,
+        "name": "DESCENDO !",
+        "genre": "sort",
+        "description": "Gagnez 2 !éclairs.",
+        "cost": 5,
+        "nb": 2,
+        "mechanics": {"instant":  ["ATTACKSELF_2"]}
+    }
+]

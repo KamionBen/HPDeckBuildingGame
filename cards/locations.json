@@ -1,0 +1,37 @@
+[
+    {
+        "year": 1,
+        "order": 1,
+        "name": "Chemin de Traverse",
+        "events_nb": 1,
+        "control_nb": 4
+    },
+    {
+        "year": 1,
+        "order": 2,
+        "name": "Miroir du Risèd",
+        "events_nb": 1,
+        "control_nb": 4
+    },
+    {
+        "year": 2,
+        "order": 1,
+        "name": "Forêt Interdite",
+        "events_nb": 1,
+        "control_nb": 4
+    },
+    {
+        "year": 2,
+        "order": 2,
+        "name": "Terrain de Quidditch",
+        "events_nb": 1,
+        "control_nb": 4
+    },
+    {
+        "year": 2,
+        "order": 3,
+        "name": "Chambre des Secrets",
+        "events_nb": 2,
+        "control_nb": 5
+    }
+]

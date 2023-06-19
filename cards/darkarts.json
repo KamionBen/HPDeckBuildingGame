@@ -1,0 +1,56 @@
+[
+    {
+        "year": 1,
+        "name": "EXPULSO !",
+        "description": "Le Héros actif perd 2 !coeur.",
+        "mechanics": {"instant": ["DAMAGEACTIVE_2"]},
+        "nb": 3
+    },
+    {
+        "year": 1,
+        "name": "PÉTRIFICATION",
+        "description": "Chaque Héros perd 1 !coeur et ne peut plus piocher de cartes supplémentaires pendant ce tour.",
+        "mechanics": {"instant":  ["DAMAGEALL_1"], "effect": ["CANT_PICK"]},
+        "nb": 2
+    },
+    {
+        "year": 1,
+        "name": "CELUI-DONT-ON-NE-DOIT-PAS-PRONONCER-LE-NOM",
+        "description": "Ajoutez 1 !marque sur le Lieu.",
+        "mechanics": {"instant":  ["CONTROL_1"]},
+        "nb": 3
+    },
+    {
+        "year": 1,
+        "name": "FLIPENDO !",
+        "description": "Le Héros actif perd 1 !coeur et défausse 1 carte.",
+        "mechanics": {"instant":  ["DAMAGEACTIVE_1", "DISCARDACTIVE_1"]},
+        "nb": 2
+    },
+    {
+        "year": 2,
+        "name": "MAIN DE LA GLOIRE",
+        "description": "Le Héros actif perd 1 !coeur. Ajoutez 1 !marque sur le Lieu.",
+        "mechanics": {"instant":  ["DAMAGEACTIVE_1", "CONTROL_1"]},
+        "nb": 2
+    },
+    {
+        "year": 2,
+        "name": "POISON",
+        "description": "CHAQUE Héros résout un effet au choix : Défaussez 1 Allié ou perdez 2 !coeur.",
+        "mechanics": {"choiceall":  ["DISCARD_ALLY", "DAMAGESELF_2"]},
+        "nb": 1
+    },
+    {
+        "year": 2,
+        "name": "LASHLABASK !",
+        "description": "CHAQUE Héros résout un effet au choix : Défaussez 1 Objet ou perdez 2 !coeur",
+        "nb": 1
+    },
+    {
+        "year": 2,
+        "name": "OUBLIETTES !",
+        "description": "CHAQUE Héros résout un effet au choix: Défaussez 1 Sort ou perdez 2 !coeur",
+        "nb": 1
+    }
+]
