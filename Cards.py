@@ -99,10 +99,12 @@ class OrderedDeck:
 
 """ DAUGHTER CLASSES """
 
-location_dict = {"Chemin de Traverse": pygame.image.load('images/diagon_alley.png').convert(),
-                 "Miroir du Risèd": pygame.image.load('images/miroir_du_rised.png').convert()}
+location_dict = {"Chemin de Traverse": pygame.image.load('images/locations/diagon_alley.png').convert(),
+                 "Miroir du Risèd": pygame.image.load('images/locations/miroir_du_rised.png').convert(),
+                 "Forêt Interdite": pygame.image.load('images/locations/forest.png').convert(),
+                 "Terrain de Quidditch": pygame.image.load('images/locations/quidditch.png').convert()}
 
-MARK = pygame.image.load('images/marque.png').convert_alpha()
+MARK = pygame.image.load('images/tokens/marque.png').convert_alpha()
 
 class Location(Card):
     def __init__(self, year, order, name, events_nb, control_nb):
@@ -126,7 +128,7 @@ class Location(Card):
         self.image.blit(nb_event, (10, 10))
 
         """ LIEU """
-        lieu = AQUIFER[24].render("LIEU", True, 'yellow')
+        lieu = AQUIFER[24].render(f"LIEU {self.order[0]}/{self.order[1]}", True, 'yellow')
         self.image.blit(lieu, (10, 50))
 
         """ NAME """
@@ -153,7 +155,7 @@ class Location(Card):
     def add_token(self, nb=1):
         self.control_nb = min(self.control_nb + nb, self.control_nb_max)
 
-TOKEN = pygame.image.load("images/attack.png").convert_alpha()
+TOKEN = pygame.image.load("images/tokens/attack.png").convert_alpha()
 
 
 class Villain(Card):

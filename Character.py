@@ -8,9 +8,9 @@ class Profile:
             self.__setattr__(k, v)
 
 
-HEART = pygame.transform.scale(pygame.image.load("images/heart.png").convert_alpha(), (30, 30))
-ATTACK = pygame.image.load("images/attack.png").convert_alpha()
-INFLUENCE = pygame.image.load("images/influence.png").convert_alpha()
+HEART = pygame.transform.scale(pygame.image.load("images/tokens/heart.png").convert_alpha(), (30, 30))
+ATTACK = pygame.image.load("images/tokens/attack.png").convert_alpha()
+INFLUENCE = pygame.image.load("images/tokens/influence.png").convert_alpha()
 
 
 class Character(pygame.sprite.Sprite):

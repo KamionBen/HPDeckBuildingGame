@@ -36,7 +36,9 @@
         "name": "Lucius Malefoy",
         "health": 7,
         "description": "Chaque fois qu'un !marque est ajouté sur le Lieu, retirez 1 !éclair de chaque Ennemi",
-        "mechanics": " coeur+1:ennemis trigger:marque+1",
+        "mechanics": {
+            "effect":  ["CONTROL_HEALVILLAINS_1"],
+            "reward":  ["INFLUENCEALL_1", "CONTROL_-1"]},
         "reward": " CHAQUE Héros gagne 1 !mornille. Retirez 1 !marque du Lieu"
     },
     {
@@ -44,7 +46,11 @@
         "name": "BASILIC",
         "health": 8,
         "description": "Les Héros ne peuvent plus piocher de cartes supplémentaires.",
-        "mechanics": "unpioche:tous trigger:tour",
+        "mechanics": {
+            "effect": ["CANT_PICK"],
+            "reward": ["PICKALL_1", "CONTROL_-1"]
+
+        },
         "reward": "CHAQUE Héros pioche 1 carte. Retirez 1 !marque du Lieu."
     },
     {
@@ -52,7 +58,9 @@
         "name": "TOM JEDUSOR",
         "health": 6,
         "description": "Le Héros actif résout un effet au choix par Allié dans sa main : Perdez 2 !coeur ou défaussez 1 carte.",
-        "mechanics": " !coeur-2%défausse-1-carte:actif trigger:alliés-main",
+        "mechanics": {
+            "choice_byally": ["DAMAGEACTIVE_2", "DISCARD_1"],
+            "reward":  {"choice":  ["HEALSELF_2", "RETRIEVEALLY_1"]}},
         "reward": "Chaque Héros résout un effet au choix : Gagnez 2 !coeur ou cherchez 1 Allié dans votre défausse et ajoutez-le à votre main."
     }
 ]

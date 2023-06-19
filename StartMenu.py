@@ -10,12 +10,14 @@ class StartMenu(common.State):
         common.State.__init__(self)
         self.buttons = []
         self.characters = {'Harry Potter': 0, 'Hermione Granger': 0, 'Ron Weasley': 0, 'Neville Londubat': 0}
+        self.years_status = {1: "", 2: "beta", 3: None, 4: None, 5: None, 6: None, 7: None}
         self.chosen_year = 1
 
         self.background = pygame.transform.scale(
             pygame.image.load("images/poudlardexpress/poudlardexpress_00000.png").convert_alpha(), RESOLUTION)
 
         self.title = pygame.Surface((RESOLUTION[0], 400), SRCALPHA, 32)
+
 
     def startup(self):
         """ startup"""
@@ -38,13 +40,15 @@ class StartMenu(common.State):
 
             position = (200 + n * 220, 400)
             size = (200, 50)
-            if y == 1:
-                func = self.select_year
-            else:
+            if self.years_status[y] is None:
                 func = None
+            else:
+                func = self.select_year
 
             b = common.Button(position, f"Année {y}", function=func, size=size, font_color=color, param={'year': y})
             self.buttons.append(b)
+            if func is not None:
+                self.buttons.append(common.Button((position[0], position[1] + 50), self.years_status[y], bg_color=(0,0,0,0)))
             n += 1
 
         """ PLAYERS BUTTONS """
