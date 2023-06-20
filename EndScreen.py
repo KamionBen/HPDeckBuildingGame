@@ -31,3 +31,5 @@ class EndScreen(common.State):
         else:
             txt = ENCHANTED[118].render("Victoire !", True, 'black')
             screen.blit(txt, ((RESOLUTION[0]-txt.get_width())/2, 200))
+        for b in self.buttons:
+            screen.blit(b.image, b.rect)

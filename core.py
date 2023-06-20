@@ -1,6 +1,37 @@
-
 from Character import *
 from random import choice
+
+class Action:
+    def __init__(self, kind: str, rawdata: str):
+        self.kind = kind  # instant, choice, choiceall, effect, trigger or in_hand
+        self.rawdata = rawdata  # raw data
+
+        self.action = None
+        self.effect = None
+        self.choice = []
+        self.nb = 0
+
+        self.selected = None
+
+        self.ready = False
+
+        self._parse()
+
+    def _parse(self):
+        if self.kind == "instant":
+            if len(self.rawdata.split('_')) == 2:
+                self.action, nb = self.rawdata.split('_')
+                self.nb = int(nb)
+                self.ready = True
+        elif self.kind == "effect":
+            if len(self.rawdata.split('_')) == 1:
+                self.effect = self.rawdata
+                self.ready = True
+        elif self.kind == "choiceall":
+            self.choice = [Action("choice", elt) for elt in self.rawdata]
+        else:
+            raise ValueError(self.kind)
+
 
 
 class GameEngine:
@@ -43,9 +74,12 @@ class GameEngine:
                             "DAMAGEACTIVE": self.damageactive,
                             "DAMAGEALL": self.damageall,
                             "CONTROL": self.control,
-                            "DISCARDACTIVE": self.discardactive}
+                            "DISCARDACTIVE": self.discardactive,
+                            "COPYALLY": self.copyally}
 
     """ ACTION """
+    def copyally(self, card: Hogwarts):
+        pass
 
     def discardactive(self, nb):
         self.action_request = f"DISCARDACTIVE_{nb}"
@@ -120,7 +154,7 @@ class GameEngine:
 
     def pick_villains(self):
         """ Place the villains on the board """
-        active_villains_by_year = {1: 1}
+        active_villains_by_year = {1: 1, 2: 1}
         while len(self.active_villains) < active_villains_by_year[self.year]:
             villain = self.villains.pick()
             self.active_villains.append(villain)
@@ -142,6 +176,18 @@ class GameEngine:
         temp = self.characters.pop(0)
         self.characters.append(temp)
 
+    def execute_action(self, action: Action):
+        if action.ready:
+            if action.kind == "instant":
+                self.action_dict[action.action](action.nb)
+            if action.kind == "effect":
+                self.effects.append(action.effect)
+        else:
+            if action.kind == "choiceall":
+                self.action_request = "choiceall"
+                self.choice = {c: action.choice for c in self.characters}
+
+
     """ START THE TURN """
 
 
@@ -154,15 +200,10 @@ class GameEngine:
             self.darkarts, self.da_discard = self.da_discard, Deck()
         self.da_discard.insert(0, da_event)
         for key, event in da_event.mechanics.items():
-            if key == "instant":
-                for effect in event:
-                    effect_type, nb = effect.split('_')
-                    self.action_dict[effect_type](int(nb))
+            for action in event:
+                a = Action(key, action)
+                self.execute_action(a)
 
-            if key == "effect":
-                for effect in event:
-                    self.effects.append(effect)
-                    self.log.insert(0, f"Effet en cours : {effect}")
         self.detect_stunned()
 
     def detect_stunned(self):

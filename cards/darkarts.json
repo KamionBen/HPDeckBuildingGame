@@ -45,12 +45,14 @@
         "year": 2,
         "name": "LASHLABASK !",
         "description": "CHAQUE Héros résout un effet au choix : Défaussez 1 Objet ou perdez 2 !coeur",
+        "mechanics": {"choiceall":  ["DISCARD_OBJECT", "DAMAGESELF_2"]},
         "nb": 1
     },
     {
         "year": 2,
         "name": "OUBLIETTES !",
         "description": "CHAQUE Héros résout un effet au choix: Défaussez 1 Sort ou perdez 2 !coeur",
+        "mechanics": {"choiceall":  ["DISCARD_SPELL", "DAMAGESELF_2"]},
         "nb": 1
     }
 ]

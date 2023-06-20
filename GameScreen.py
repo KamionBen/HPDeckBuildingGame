@@ -35,6 +35,10 @@ class GameScreen(common.State):
 
         self.buttons = []
 
+        """ FLAGS """
+        self._choice_flag = False
+        self._choice_screen = None
+
     def startup(self):
         """ SET UP THE GAME """
         self.engine = GameEngine(common.State.gamedata['characters'], common.State.gamedata['year'])
@@ -70,6 +74,10 @@ class GameScreen(common.State):
         if self.engine.game_over is not None:
             self.done = True
         else:
+            if self.engine.action_request == "choiceall":
+                for hero, action in self.engine.choice.items():
+                    pass
+
             self.buttons = []
             self.update_character()
             self.update_villains()
@@ -214,6 +222,18 @@ class GameScreen(common.State):
                 self.buttons.append(endbutton)
 
                 self.update_location()
+
+    def show_choice_screen(self, hero: Character, action: Action):
+        """ Show a screen with all the infos to make a choice """
+        width, height = 800, 400
+        self._choice_flag = True
+        self._choice_screen = pygame.Surface((width, height), SRCALPHA, 32)
+        self._choice_screen.fill((0,0,0,128))
+        name = ENCHANTED[80].render(hero.firstname, True, "white")
+        self._choice_screen.blit(name, ((width-name.get_width())/2, 50))
+        for i, option in enumerate(action.choice):
+            self.buttons.append(common.Button((560, 500 + i * 50), option.action))
+
 
     def heroheal(self, nb, character: Character):
         self.engine.heroheal(nb, character)
@@ -396,14 +416,11 @@ class GameScreen(common.State):
             darkartsevent = self.engine.da_discard[0]
             screen.blit(darkartsevent.image, (10, 155))
         """ EFFECTS """
-        txt_dict = {"CONTROL_DAMAGEACTIVE_2": "Chaque fois qu'une marque est ajoutée sur le Lieu, le Héros actif perd 2 coeurs",
-                    "FORCED_DISCARD_DAMAGE_1": "Chaque fois qu'un Ennemi ou un évènement Forces du Mal oblige un Héros à défausser une carte, ce Héros perd également 1 coeur.",
-                    "CANT_PICK": "Vous ne pouvez plus piocher de cartes"}
         if len(self.engine.effects) > 0:
             effects = AQUIFER[20].render("Effets en cours :", True, 'white')
             screen.blit(effects, (10, 400))
             for i, eff in enumerate(self.engine.effects):
-                txt = AQUIFER[20].render(txt_dict[eff], True, 'white')
+                txt = AQUIFER[20].render(eff, True, 'white')
                 screen.blit(txt, (10, 440 + i *40))
 
     def _draw_board(self, screen):
@@ -501,6 +518,8 @@ class GameScreen(common.State):
         self._draw_board(screen)
         self._draw_villains(screen)
         self._draw_characters(screen)
+        if self._choice_flag:
+            screen.blit(self._choice_screen, (560, 200))
         if self.discard_flag:
             self._draw_discardpanel(screen)
         for i, b in enumerate(self.buttons):

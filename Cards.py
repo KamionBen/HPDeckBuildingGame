@@ -102,7 +102,8 @@ class OrderedDeck:
 location_dict = {"Chemin de Traverse": pygame.image.load('images/locations/diagon_alley.png').convert(),
                  "Miroir du Risèd": pygame.image.load('images/locations/miroir_du_rised.png').convert(),
                  "Forêt Interdite": pygame.image.load('images/locations/forest.png').convert(),
-                 "Terrain de Quidditch": pygame.image.load('images/locations/quidditch.png').convert()}
+                 "Terrain de Quidditch": pygame.image.load('images/locations/quidditch.png').convert(),
+                 "Chambre des Secrets": pygame.image.load('images/locations/chamber.png').convert()}
 
 MARK = pygame.image.load('images/tokens/marque.png').convert_alpha()
 
@@ -156,6 +157,10 @@ class Location(Card):
         self.control_nb = min(self.control_nb + nb, self.control_nb_max)
 
 TOKEN = pygame.image.load("images/tokens/attack.png").convert_alpha()
+
+txt_dict = {"CONTROL_DAMAGEACTIVE_2": "Chaque fois qu'une marque est ajoutée sur le Lieu, le Héros actif perd 2 coeurs",
+                    "FORCED_DISCARD_DAMAGE_1": "Chaque fois qu'un Ennemi ou un évènement Forces du Mal oblige un Héros à défausser une carte, ce Héros perd également 1 coeur.",
+                    "CANT_PICK": "Vous ne pouvez plus piocher de cartes"}
 
 
 class Villain(Card):
