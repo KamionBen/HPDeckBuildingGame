@@ -13,6 +13,8 @@ class Card(pygame.sprite.Sprite):
         self.name = name
         self.year = year
 
+        self.mechanics = {}
+
     def __repr__(self):
         return self.name
 

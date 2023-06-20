@@ -31,7 +31,10 @@ class MainMenu(common.State):
 
 
         """ MAIN MENU """
-        menu = {"Nouvelle partie": self.start_game, "Charger une partie": None, "Quitter": self.quitter}
+        menu = {"Nouvelle partie": self.start_game,
+                "Charger une partie": None,
+                "Configuration": None,
+                "Quitter": self.quitter}
         i = 0
         for text, func in menu.items():
             if func is None:
@@ -52,7 +55,7 @@ class MainMenu(common.State):
         for i, button in enumerate(self.buttons):
             button.image.set_alpha(int((self.animation_tick - 55 + (-i * 10)) / 100 * 255))
 
-        self.animation_tick += 1
+        self.animation_tick += 2
 
     def draw(self, screen):
         screen.fill('black')
@@ -63,13 +66,18 @@ class MainMenu(common.State):
 
 
 
-    def get_event(self, event: pg.event.Event):
+    def get_event(self, event: pygame.event.Event):
         if event.type == MOUSEBUTTONUP:
             if event.button == BUTTON_LEFT:
                 for button in self.buttons:
                     if button.rect.collidepoint(event.pos):
                         if button.function is not None:
                             button.function()
+
+    def configuration(self):
+        self.next = "Configuration"
+        self.previous = "MainMenu"
+        self.done = True
 
     def start_game(self):
         self.next = "StartMenu"
